@@ -1,6 +1,6 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'ACR Login'
+description: 'ACR Login'
 inputs:
   acr-uri:  # id of input
     description: 'Acr URI'
@@ -14,6 +14,3 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.acr-uri }}
-    - ${{ inputs.tenant-id }}
