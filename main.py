@@ -9,3 +9,4 @@ cred = ManagedIdentityCredential()
 aad_access_token = cred.get_token(container_audience)
 
 os.environ["OUTPUT_TOKEN"] = aad_access_token.token
+print(os.environ["OUTPUT_TOKEN"])
