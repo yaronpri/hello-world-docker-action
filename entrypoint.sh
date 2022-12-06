@@ -2,4 +2,3 @@
 pwd
 ls -l
 python3 /main.py >> $GITHUB_OUTPUT
-echo $GITHUB_OUTPUT
