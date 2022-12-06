@@ -2,15 +2,18 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  acr-uri:  # id of input
+    description: 'Acr URI'
     required: true
-    default: 'World'
+  tenant-id:  # id of input
+    description: 'Tenant ID'
+    required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  token: # id of output
+    description: 'Token from managed identity'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.acr-uri }}
+    - ${{ inputs.tenant-id }}
