@@ -9,7 +9,7 @@ else
   aadtoken=$(python3 /main.py $clientid)
 fi
 data="grant_type=access_token&service=$acruri&access_token=$aadtoken"
-if ![ -z "$tenantid" ]
+if ! [ -z "$tenantid" ]
 then
   data=data + "&tenant=$tenantid"
 fi 
