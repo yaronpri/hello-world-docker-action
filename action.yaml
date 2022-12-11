@@ -18,9 +18,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - --acr_uri
-    - ${{ inputs.acr_uri }}
-    - --client_id
+    - ${{ inputs.acr_uri }}    
     - ${{ inputs.client_id }}
-    - --tenant_id
     - ${{ inputs.tenant_id }}

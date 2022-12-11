@@ -1,7 +1,4 @@
-import os
-import requests
-from json import loads
-from urllib.parse import urlencode
+import sys
 from azure.identity import ManagedIdentityCredential
 
 #tenant = os.environ.get("TENANT_ID", "")
