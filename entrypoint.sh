@@ -15,4 +15,4 @@ then
 fi 
 url="https://$acruri/oauth2/exchange"
 result=$(curl --header 'application/x-www-form-urlencoded' -s --request POST --data $data $url | jq -r '.refresh_token')
-echo $result
+echo "$result" >> $GITHUB_OUTPUT

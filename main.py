@@ -8,7 +8,10 @@ from azure.identity import ManagedIdentityCredential
 arm_audience = "https://management.azure.com"
 container_audience = "https://containerregistry.azure.net"
 
-cred = ManagedIdentityCredential()
+if (len(sys.argv) > 1):
+  cred = ManagedIdentityCredential(client_id=sys.argv[1])
+else:
+  cred = ManagedIdentityCredential()
 aad_access_token = cred.get_token(container_audience)
 
 #headers = {'Metadata': 'true'}
