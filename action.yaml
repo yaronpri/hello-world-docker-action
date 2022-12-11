@@ -12,8 +12,8 @@ inputs:
     description: 'Tenant ID'
     required: false
 outputs:
-  token: # id of output
-    description: 'Token from managed identity'
+  result:
+    description: 'ACR token'
 runs:
   using: 'docker'
   image: 'Dockerfile'
