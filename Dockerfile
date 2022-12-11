@@ -1,6 +1,8 @@
 FROM python:3.9-slim-bullseye 
-COPY requirements.txt requirements.txt
+RUN apt-get update && apt-get install -y curl &&  apt-get install -y jq
+WORKDIR /app
+COPY requirements.txt ./requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
-COPY entrypoint.sh /entrypoint.sh
-COPY main.py /main.py
-CMD ["/entrypoint.sh"]
+COPY entrypoint.sh ./entrypoint.sh
+COPY main.py ./main.py
+CMD ["./entrypoint.sh"]

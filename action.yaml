@@ -1,16 +1,26 @@
 # action.yml
-name: 'ACR Login'
-description: 'ACR Login'
+name: 'Get ACR ManagedId Login'
+description: 'Get ACR ManagedId Login'
 inputs:
-  acr-uri:  # id of input
-    description: 'Acr URI'
+  acr_uri:  
+    description: 'Azure Container Registry URI'
     required: true
-  tenant-id:  # id of input
+  client_id:  
+    description: 'Client ID (in case of multiple managed identity)'
+    required: false
+  tenant_id:  
     description: 'Tenant ID'
-    required: true
+    required: false
 outputs:
   token: # id of output
     description: 'Token from managed identity'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - --acr_uri
+    - ${{ inputs.acr_uri }}
+    - --client_id
+    - ${{ inputs.client_id }}
+    - --tenant_id
+    - ${{ inputs.tenant_id }}
